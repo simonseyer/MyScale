@@ -1,0 +1,475 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		591907172B4EAD20004D0EF9 /* ConnectingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591907162B4EAD20004D0EF9 /* ConnectingView.swift */; };
+		591907192B4EAF9F004D0EF9 /* MeasureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591907182B4EAF9F004D0EF9 /* MeasureView.swift */; };
+		596BD1B92B4E948500911C66 /* MyScaleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596BD1B82B4E948500911C66 /* MyScaleApp.swift */; };
+		596BD1BB2B4E948500911C66 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596BD1BA2B4E948500911C66 /* MainView.swift */; };
+		596BD1BD2B4E948700911C66 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 596BD1BC2B4E948700911C66 /* Assets.xcassets */; };
+		596BD1C12B4E948700911C66 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 596BD1C02B4E948700911C66 /* Preview Assets.xcassets */; };
+		596BD1C92B4E94BA00911C66 /* AsyncBluetooth in Frameworks */ = {isa = PBXBuildFile; productRef = 596BD1C82B4E94BA00911C66 /* AsyncBluetooth */; };
+		598DAEB92B51F11200627FC1 /* MyBluetooth in Frameworks */ = {isa = PBXBuildFile; productRef = 598DAEB82B51F11200627FC1 /* MyBluetooth */; };
+		598DAEBB2B51F11500627FC1 /* MyHealthKit in Frameworks */ = {isa = PBXBuildFile; productRef = 598DAEBA2B51F11500627FC1 /* MyHealthKit */; };
+		59BDF1C42B4FDE5300A31DA3 /* ResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59BDF1C32B4FDE5300A31DA3 /* ResultsView.swift */; };
+		59BDF1C62B50056300A31DA3 /* AppleHealthStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59BDF1C52B50056300A31DA3 /* AppleHealthStatusView.swift */; };
+		59D8FB952B52AB78001755B3 /* Metrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D8FB942B52AB78001755B3 /* Metrics.swift */; };
+		59D8FB972B540237001755B3 /* MetricsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D8FB962B540237001755B3 /* MetricsView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		591907162B4EAD20004D0EF9 /* ConnectingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectingView.swift; sourceTree = "<group>"; };
+		591907182B4EAF9F004D0EF9 /* MeasureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasureView.swift; sourceTree = "<group>"; };
+		596BD1B52B4E948500911C66 /* My Scale.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "My Scale.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		596BD1B82B4E948500911C66 /* MyScaleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyScaleApp.swift; sourceTree = "<group>"; };
+		596BD1BA2B4E948500911C66 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		596BD1BC2B4E948700911C66 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		596BD1BE2B4E948700911C66 /* MyScale.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MyScale.entitlements; sourceTree = "<group>"; };
+		596BD1C02B4E948700911C66 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		598DAEAF2B51A83600627FC1 /* MyHealthKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = MyHealthKit; sourceTree = "<group>"; };
+		598DAEB62B51F0AA00627FC1 /* MyBluetooth */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = MyBluetooth; sourceTree = "<group>"; };
+		59BDF1C32B4FDE5300A31DA3 /* ResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsView.swift; sourceTree = "<group>"; };
+		59BDF1C52B50056300A31DA3 /* AppleHealthStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleHealthStatusView.swift; sourceTree = "<group>"; };
+		59D8FB942B52AB78001755B3 /* Metrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metrics.swift; sourceTree = "<group>"; };
+		59D8FB962B540237001755B3 /* MetricsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetricsView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		596BD1B22B4E948500911C66 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				598DAEBB2B51F11500627FC1 /* MyHealthKit in Frameworks */,
+				596BD1C92B4E94BA00911C66 /* AsyncBluetooth in Frameworks */,
+				598DAEB92B51F11200627FC1 /* MyBluetooth in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		596BD1AC2B4E948500911C66 = {
+			isa = PBXGroup;
+			children = (
+				598DAEAE2B51A81C00627FC1 /* Packages */,
+				596BD1B72B4E948500911C66 /* MyScale */,
+				596BD1B62B4E948500911C66 /* Products */,
+				598DAEB72B51F11200627FC1 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		596BD1B62B4E948500911C66 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				596BD1B52B4E948500911C66 /* My Scale.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		596BD1B72B4E948500911C66 /* MyScale */ = {
+			isa = PBXGroup;
+			children = (
+				59BDF1C82B50468000A31DA3 /* Model */,
+				59BDF1C72B50467800A31DA3 /* Views */,
+				596BD1B82B4E948500911C66 /* MyScaleApp.swift */,
+				596BD1BC2B4E948700911C66 /* Assets.xcassets */,
+				596BD1BE2B4E948700911C66 /* MyScale.entitlements */,
+				596BD1BF2B4E948700911C66 /* Preview Content */,
+			);
+			path = MyScale;
+			sourceTree = "<group>";
+		};
+		596BD1BF2B4E948700911C66 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				596BD1C02B4E948700911C66 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		598DAEAE2B51A81C00627FC1 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				598DAEB62B51F0AA00627FC1 /* MyBluetooth */,
+				598DAEAF2B51A83600627FC1 /* MyHealthKit */,
+			);
+			path = Packages;
+			sourceTree = "<group>";
+		};
+		598DAEB72B51F11200627FC1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		59BDF1C72B50467800A31DA3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				596BD1BA2B4E948500911C66 /* MainView.swift */,
+				591907162B4EAD20004D0EF9 /* ConnectingView.swift */,
+				591907182B4EAF9F004D0EF9 /* MeasureView.swift */,
+				59BDF1C32B4FDE5300A31DA3 /* ResultsView.swift */,
+				59BDF1C52B50056300A31DA3 /* AppleHealthStatusView.swift */,
+				59D8FB962B540237001755B3 /* MetricsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		59BDF1C82B50468000A31DA3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				59D8FB942B52AB78001755B3 /* Metrics.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		596BD1B42B4E948500911C66 /* MyScale */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 596BD1C42B4E948700911C66 /* Build configuration list for PBXNativeTarget "MyScale" */;
+			buildPhases = (
+				596BD1B12B4E948500911C66 /* Sources */,
+				596BD1B22B4E948500911C66 /* Frameworks */,
+				596BD1B32B4E948500911C66 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MyScale;
+			packageProductDependencies = (
+				596BD1C82B4E94BA00911C66 /* AsyncBluetooth */,
+				598DAEB82B51F11200627FC1 /* MyBluetooth */,
+				598DAEBA2B51F11500627FC1 /* MyHealthKit */,
+			);
+			productName = MyScale;
+			productReference = 596BD1B52B4E948500911C66 /* My Scale.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		596BD1AD2B4E948500911C66 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1520;
+				LastUpgradeCheck = 1520;
+				TargetAttributes = {
+					596BD1B42B4E948500911C66 = {
+						CreatedOnToolsVersion = 15.2;
+					};
+				};
+			};
+			buildConfigurationList = 596BD1B02B4E948500911C66 /* Build configuration list for PBXProject "MyScale" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 596BD1AC2B4E948500911C66;
+			packageReferences = (
+				596BD1C72B4E94BA00911C66 /* XCRemoteSwiftPackageReference "AsyncBluetooth" */,
+			);
+			productRefGroup = 596BD1B62B4E948500911C66 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				596BD1B42B4E948500911C66 /* MyScale */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		596BD1B32B4E948500911C66 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				596BD1C12B4E948700911C66 /* Preview Assets.xcassets in Resources */,
+				596BD1BD2B4E948700911C66 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		596BD1B12B4E948500911C66 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				596BD1BB2B4E948500911C66 /* MainView.swift in Sources */,
+				59BDF1C62B50056300A31DA3 /* AppleHealthStatusView.swift in Sources */,
+				59BDF1C42B4FDE5300A31DA3 /* ResultsView.swift in Sources */,
+				591907172B4EAD20004D0EF9 /* ConnectingView.swift in Sources */,
+				59D8FB952B52AB78001755B3 /* Metrics.swift in Sources */,
+				591907192B4EAF9F004D0EF9 /* MeasureView.swift in Sources */,
+				59D8FB972B540237001755B3 /* MetricsView.swift in Sources */,
+				596BD1B92B4E948500911C66 /* MyScaleApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		596BD1C22B4E948700911C66 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		596BD1C32B4E948700911C66 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		596BD1C52B4E948700911C66 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MyScale/MyScale.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"MyScale/Preview Content\"";
+				DEVELOPMENT_TEAM = V8Y4ZV4958;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Read information from your scale";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "Read information from your scale";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Uses body metrics to calculate metrics like body fat percentage and BMI ";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Store measured body metrics for further analysis in the Apple Health app";
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 14.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ch.comeup.MyScale;
+				PRODUCT_NAME = "My Scale";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		596BD1C62B4E948700911C66 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MyScale/MyScale.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"MyScale/Preview Content\"";
+				DEVELOPMENT_TEAM = V8Y4ZV4958;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Read information from your scale";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "Read information from your scale";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Uses body metrics to calculate metrics like body fat percentage and BMI ";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Store measured body metrics for further analysis in the Apple Health app";
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 14.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ch.comeup.MyScale;
+				PRODUCT_NAME = "My Scale";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		596BD1B02B4E948500911C66 /* Build configuration list for PBXProject "MyScale" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				596BD1C22B4E948700911C66 /* Debug */,
+				596BD1C32B4E948700911C66 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		596BD1C42B4E948700911C66 /* Build configuration list for PBXNativeTarget "MyScale" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				596BD1C52B4E948700911C66 /* Debug */,
+				596BD1C62B4E948700911C66 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		596BD1C72B4E94BA00911C66 /* XCRemoteSwiftPackageReference "AsyncBluetooth" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/manolofdez/AsyncBluetooth";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.9.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		596BD1C82B4E94BA00911C66 /* AsyncBluetooth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 596BD1C72B4E94BA00911C66 /* XCRemoteSwiftPackageReference "AsyncBluetooth" */;
+			productName = AsyncBluetooth;
+		};
+		598DAEB82B51F11200627FC1 /* MyBluetooth */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MyBluetooth;
+		};
+		598DAEBA2B51F11500627FC1 /* MyHealthKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MyHealthKit;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 596BD1AD2B4E948500911C66 /* Project object */;
+}
