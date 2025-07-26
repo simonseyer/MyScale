@@ -1,5 +1,4 @@
 import SwiftUI
-import MyBluetooth
 
 struct ConnectingView: View {
     

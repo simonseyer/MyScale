@@ -1,5 +1,4 @@
 import SwiftUI
-import MyBluetooth
 
 struct MeasureView: View {
     
@@ -53,6 +52,7 @@ struct MeasureView: View {
     }
 }
 
+@Observable
 class PreviewScale: Scale {
     
     var isConnected = true

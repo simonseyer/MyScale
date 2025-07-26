@@ -27,8 +27,8 @@ extension CentralManagerEvent {
     }
 }
 
-extension [String: Any] {
+extension ScanData {
     var serviceUUIDs: Set<CBUUID> {
-        Set(self[CBAdvertisementDataServiceUUIDsKey] as? [CBUUID] ?? [])
+        Set(advertisementData[CBAdvertisementDataServiceUUIDsKey] as? [CBUUID] ?? [])
     }
 }

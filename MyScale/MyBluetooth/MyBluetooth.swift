@@ -40,7 +40,7 @@ public class MyBluetoothImpl: MyBluetooth {
     public init(centralManager: CentralManager = .init()) {
         self.centralManager = centralManager
         self.state = .init(centralManager.bluetoothState)
-        
+
         centralManager.eventPublisher
             .compactMap { event in
                 if case .didUpdateState(let state) = event {
@@ -86,7 +86,7 @@ public class MyBluetoothImpl: MyBluetooth {
     
     private func connectScale(with scanData: ScanData) async -> Scale? {
         let scannables = Self.connectableScales.filter { connectable in
-            !scanData.advertisementData.serviceUUIDs.isDisjoint(with: connectable.scannableServices)
+            !scanData.serviceUUIDs.isDisjoint(with: connectable.scannableServices)
         }
         for scannable in scannables {
             do {

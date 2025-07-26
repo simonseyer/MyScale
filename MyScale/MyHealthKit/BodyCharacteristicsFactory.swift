@@ -18,7 +18,7 @@ extension BiologicalSex {
     }
 }
 
-class BodyCharacteristicsFactory {
+struct BodyCharacteristicsFactory: Sendable {
     private let healthStore: HKHealthStore
     
     init(healthStore: HKHealthStore) {

@@ -1,8 +1,7 @@
 import Foundation
 import HealthKit
 
-@MainActor
-public protocol MyHealthKit {
+public protocol MyHealthKit: Sendable {
     var isAvailable: Bool { get }
     var authorizationStatus: HealthKitAuthorization { get }
  
@@ -12,9 +11,8 @@ public protocol MyHealthKit {
     func share(sample: HealthKitSample) async throws
 }
 
-@MainActor
-public class MyHealthKitImpl: MyHealthKit {
-    
+public struct MyHealthKitImpl: MyHealthKit {
+
     private let healthStore = HKHealthStore()
     private let bodyCharacteristicsFactory: BodyCharacteristicsFactory
     

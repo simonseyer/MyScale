@@ -1,5 +1,6 @@
 import Foundation
 
+@MainActor
 public protocol Scale: Observable {
     var isConnected: Bool { get }
     var batteryLevel: Int? { get }
@@ -8,7 +9,7 @@ public protocol Scale: Observable {
     func disconnect() async throws
 }
 
-public struct ScaleMeasurement: Hashable, Identifiable {
+public struct ScaleMeasurement: Hashable, Identifiable, Sendable {
     public var id: Int {
         hashValue
     }
@@ -17,7 +18,7 @@ public struct ScaleMeasurement: Hashable, Identifiable {
     public let impedance: Double
     public let status: Status
     
-    public enum Status {
+    public enum Status: Sendable {
         case final
         case measuring
         case overWeight

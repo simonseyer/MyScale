@@ -1,10 +1,10 @@
 import Foundation
 
-public enum BiologicalSex {
+public enum BiologicalSex: Sendable {
     case male, female, unknown
 }
 
-public struct BodyCharacteristics {
+public struct BodyCharacteristics: Sendable {
     public let birthDate: Date?
     public let bodyHeight: Measurement<UnitLength>?
     public let biologicalSex: BiologicalSex

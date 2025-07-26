@@ -1,6 +1,4 @@
 import SwiftUI
-import MyBluetooth
-import MyHealthKit
 
 struct MetricsView: View {
     
@@ -14,29 +12,31 @@ struct MetricsView: View {
             } unit: {
                 Text(massFormatter.string(from: metrics.bodyMass.unit))
             }
-            if let leanBodyMass = metrics.leanBodyMass {
-                MetricsEntryView(symbol: "figure.mixed.cardio", title: "Lean Body Mass") {
+
+            MetricsEntryView(symbol: "figure.mixed.cardio", title: "Lean Body Mass") {
+                if let leanBodyMass = metrics.leanBodyMass {
                     Text(leanBodyMass.value, format: .number.precision(.fractionLength(1)))
-                } unit: {
-                    Text(massFormatter.string(from: leanBodyMass.unit))
                 }
+            } unit: {
+                Text(massFormatter.string(from: metrics.leanBodyMass?.unit ?? UnitMass.kilograms))
             }
-            
-            if let bodyFatPercentage = metrics.bodyFatPercentage {
-                MetricsEntryView(symbol: "percent", title: "Body Fat Percentage") {
+
+            MetricsEntryView(symbol: "percent", title: "Body Fat Percentage") {
+                if let bodyFatPercentage = metrics.bodyFatPercentage {
                     Text(bodyFatPercentage * 100, format: .number.precision(.fractionLength(1)))
-                } unit: {
-                    Text("%")
                 }
+            } unit: {
+                Text("%")
             }
-            
-            if let bodyMassIndex = metrics.bodyMassIndex {
-                MetricsEntryView(symbol: "figure.stand", title: "Body Mass Index") {
+
+            MetricsEntryView(symbol: "figure.stand", title: "Body Mass Index") {
+                if let bodyMassIndex = metrics.bodyMassIndex {
                     Text(bodyMassIndex, format: .number.precision(.fractionLength(1)))
-                } unit: {
-                    Text("BMI")
                 }
+            } unit: {
+                Text("BMI")
             }
+
         }
         .padding(.bottom)
     }
@@ -45,12 +45,12 @@ struct MetricsView: View {
 struct MetricsEntryView: View {
     let symbol: String
     let title: LocalizedStringResource
-    let value: () -> Text
+    let value: () -> Text?
     let unit: () -> Text
     
     init(symbol: String,
          title: LocalizedStringResource,
-         @ViewBuilder value: @escaping () -> Text,
+         @ViewBuilder value: @escaping () -> Text?,
          @ViewBuilder unit: @escaping () -> Text) {
         self.symbol = symbol
         self.title = title
@@ -65,11 +65,18 @@ struct MetricsEntryView: View {
                 .monospacedDigit()
                 .foregroundStyle(.tint)
                 .padding(.bottom, 6)
+
             HStack(alignment: .lastTextBaseline, spacing: 4) {
-                value()
-                    .font(.title)
-                unit()
-                    .foregroundStyle(.secondary)
+                if let valueView = value() {
+                    valueView
+                        .font(.title)
+                    unit()
+                        .foregroundStyle(.secondary)
+                } else {
+                    Text("Missing HealthKit information")
+                        .font(.footnote)
+                        .foregroundStyle(.secondary)
+                }
                 Spacer()
             }
         }
@@ -86,7 +93,7 @@ struct MetricsEntryView: View {
         status: .final
     )
     let bodyCharacteristics = BodyCharacteristics(birthDate: nil,
-                                                  bodyHeight: nil,
+                                                  bodyHeight: .init(value: 183, unit: . centimeters),
                                                   biologicalSex: .unknown)
     return MetricsView(metrics: MyMetrics(
         measurement: measurement,

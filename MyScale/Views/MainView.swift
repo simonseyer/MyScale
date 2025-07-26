@@ -1,11 +1,9 @@
 import SwiftUI
-import MyBluetooth
-import MyHealthKit
 
 @MainActor
 struct MainView: View {
     
-    private let bluetooth = MyBluetoothImpl()
+    let bluetooth: MyBluetooth
     private let healthKit = MyHealthKitImpl()
     
     @State private var scale: Scale?
@@ -56,26 +54,31 @@ struct MainView: View {
     }
 }
 
-struct BluetoothStatusView: View {
-    
-    let bluetoothState: BluetoothState
-    
-    var body: some View {
-        switch bluetoothState {
-        case .poweredOff:
-            Text("Please turn on Bluetooth")
-        case .poweredOn:
-            Text("Ready to scan")
-        case .resetting, .unknown:
-            ProgressView()
-        case .unauthorized:
-            Text("Please give the app Bluetooth permission")
-        case .unsupported:
-            Text("Unfortunatly Bluetooth is not supported on this device")
-        }
+@Observable
+class MyBluetoothPreview: MyBluetooth {
+    var state: BluetoothState = .unknown
+    var isConnecting: Bool = false
+
+    func waitUntilReady() async throws {
+        state = .poweredOn
     }
+    
+    func connectToNearbyScale() async throws -> any Scale {
+        isConnecting = true
+        let scale = PreviewScale()
+        try await Task.sleep(for: .seconds(2))
+        Task {
+            try await Task.sleep(for: .seconds(2))
+            scale.measurement = .init(weight: .init(value: 66, unit: .kilograms),
+                                      impedance: 500,
+                                      status: .final)
+        }
+        return scale
+    }
+    
+
 }
 
 #Preview {
-    MainView()
+    MainView(bluetooth: MyBluetoothPreview())
 }

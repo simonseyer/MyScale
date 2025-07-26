@@ -1,7 +1,7 @@
 import Foundation
 import HealthKit
 
-public struct HealthKitUnits {
+public struct HealthKitUnits: Sendable {
     public let bodyMass: UnitMass
     public let leanBodyMass: UnitMass
 }

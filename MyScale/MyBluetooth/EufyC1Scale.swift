@@ -5,6 +5,7 @@ import OSLog
 import CoreBluetooth
 
 @Observable
+@MainActor
 class EufyC1Scale: Scale, BluetoothConnectable {
     
     private(set) var isConnected = false
@@ -38,7 +39,7 @@ class EufyC1Scale: Scale, BluetoothConnectable {
         self.centralManager = centralManager
         self.peripheral = peripheral
         
-        observeConnectionState()
+        await observeConnectionState()
         try await centralManager.connect(peripheral)
         try await observeMainCharacteristic()
         Task {
@@ -104,7 +105,7 @@ class EufyC1Scale: Scale, BluetoothConnectable {
             .store(in: &subscriptions)
     }
     
-    private func observeConnectionState() {
+    private func observeConnectionState() async {
         centralManager.eventPublisher
             .compactMap { event in
                 guard event.peripheral?.identifier == self.peripheral.identifier else {

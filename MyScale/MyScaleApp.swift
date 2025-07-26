@@ -4,7 +4,7 @@ import SwiftUI
 struct MyScaleApp: App {
     var body: some Scene {
         WindowGroup {
-            MainView()
+            MainView(bluetooth: MyBluetoothImpl())
         }
     }
 }

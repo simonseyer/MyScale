@@ -2,6 +2,7 @@ import Foundation
 import AsyncBluetooth
 import CoreBluetooth
 
+@MainActor
 protocol BluetoothConnectable {
     static var scannableServices: Set<CBUUID> { get }
     

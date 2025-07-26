@@ -1,8 +1,6 @@
 import Foundation
-import MyBluetooth
-import MyHealthKit
 
-struct MyMetrics {
+struct MyMetrics: Sendable {
     let bodyMass: Measurement<UnitMass>
     let leanBodyMass: Measurement<UnitMass>?
     let bodyMassIndex: Double?

@@ -1,6 +1,4 @@
 import SwiftUI
-import MyBluetooth
-import MyHealthKit
 
 @MainActor
 struct ResultsView: View {
@@ -53,7 +51,7 @@ struct ResultsView: View {
     
     private func updateMetrics(animated: Bool) async {
         let metrics = await MyMetrics(measurement: measurement,
-                                  healthKit: healthKit)
+                                      healthKit: healthKit)
         if animated {
             withAnimation {
                 self.metrics = metrics
