@@ -1,18 +1,18 @@
 import Foundation
 
-struct MyMetrics: Sendable {
+struct MyMetrics {
     let bodyMass: Measurement<UnitMass>
     let leanBodyMass: Measurement<UnitMass>?
     let bodyMassIndex: Double?
     let bodyFatPercentage: Double?
     
-    public init(measurement: ScaleMeasurement, healthKit: MyHealthKit) async {
+    init(measurement: ScaleMeasurement, healthKit: any MyHealthKit) async {
         let units = try? await healthKit.readPreferredUnits()
         let characteristics = await healthKit.readBodyCharacteristics()
         self.init(measurement: measurement, bodyCharacteristics: characteristics, units: units)
     }
     
-    public init(measurement: ScaleMeasurement, bodyCharacteristics: BodyCharacteristics, units: HealthKitUnits?) {
+    init(measurement: ScaleMeasurement, bodyCharacteristics: BodyCharacteristics, units: HealthKitUnits?) {
         let defaultBodyMassUnit = UnitMass(forLocale: .autoupdatingCurrent, usage: .personWeight)
         let heightInMeters = bodyCharacteristics.bodyHeight?.converted(to: .meters).value
         let weightInKilograms = measurement.weight.converted(to: .kilograms).value

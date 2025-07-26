@@ -2,8 +2,8 @@ import SwiftUI
 
 struct ConnectingView: View {
     
-    let bluetooth: MyBluetooth
-    @Binding var scale: Scale?
+    let bluetooth: any MyBluetooth
+    @Binding var scale: (any Scale)?
     
     @State private var shouldScan = true
     @Environment(\.scenePhase) private var scenePhase

@@ -1,9 +1,9 @@
 import Foundation
 import HealthKit
 
-public struct HealthKitUnits: Sendable {
-    public let bodyMass: UnitMass
-    public let leanBodyMass: UnitMass
+struct HealthKitUnits {
+    let bodyMass: UnitMass
+    let leanBodyMass: UnitMass
 }
 
 extension HealthKitUnits {

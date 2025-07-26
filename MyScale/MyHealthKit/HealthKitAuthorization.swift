@@ -1,7 +1,7 @@
 import Foundation
 import HealthKit
 
-public enum HealthKitAuthorization {
+enum HealthKitAuthorization {
     /// No authorization was requested yet
     case notRequested
     /// Authorization was requested for some but not all relevant metrics

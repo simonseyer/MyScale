@@ -4,7 +4,7 @@ import SwiftUI
 struct ResultsView: View {
     
     let measurement: ScaleMeasurement
-    let healthKit: MyHealthKit
+    let healthKit: any MyHealthKit
 
     @State var isSynchronized = false
     @State var metrics: MyMetrics?

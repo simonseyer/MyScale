@@ -2,7 +2,7 @@ import SwiftUI
 
 struct MeasureView: View {
     
-    let scale: Scale
+    let scale: any Scale
     let onFinalMeasurement: (ScaleMeasurement) -> Void
     
     var weight: Measurement<UnitMass> {

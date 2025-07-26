@@ -1,5 +1,6 @@
 import Foundation
 import HealthKit
+import os
 
 extension BiologicalSex {
     init(_ sex: HKBiologicalSex) {
@@ -18,7 +19,7 @@ extension BiologicalSex {
     }
 }
 
-struct BodyCharacteristicsFactory: Sendable {
+struct BodyCharacteristicsFactory {
     private let healthStore: HKHealthStore
     
     init(healthStore: HKHealthStore) {
@@ -52,25 +53,39 @@ struct BodyCharacteristicsFactory: Sendable {
     }
     
     private func readBodyHeight() async -> Measurement<UnitLength>? {
-        await withCheckedContinuation { continuation in
+        do {
+            let samples = try await executeHeightQuery()
+            return processHeightSamples(samples)
+        } catch {
+            logger.warning("Failed to read body height: \(error)")
+            return nil
+        }
+    }
+    
+    private func executeHeightQuery() async throws -> [HKSample]? {
+        try await withCheckedThrowingContinuation { continuation in
             let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierStartDate, ascending: false)
             let query = HKSampleQuery(sampleType: .height,
                                       predicate: nil,
                                       limit: 1,
                                       sortDescriptors: [sortDescriptor]) { (query, results, error) in
                 if let error {
-                    logger.warning("Failed to read body height: \(error)")
-                    continuation.resume(returning: .none)
-                } else if let result = results?.first as? HKQuantitySample {
-                    let heightInMeters = result.quantity.doubleValue(for: .meter())
-                    let heightMeasurement = Measurement<UnitLength>(value: heightInMeters, unit: .meters)
-                    continuation.resume(returning: heightMeasurement)
+                    continuation.resume(throwing: error)
                 } else {
-                    logger.warning("Failed to read body height: No results")
-                    continuation.resume(returning: .none)
+                    continuation.resume(returning: results)
                 }
             }
             healthStore.execute(query)
         }
+    }
+    
+    private func processHeightSamples(_ samples: [HKSample]?) -> Measurement<UnitLength>? {
+        guard let result = samples?.first as? HKQuantitySample else {
+            logger.warning("Failed to read body height: No results")
+            return nil
+        }
+        
+        let heightInMeters = result.quantity.doubleValue(for: .meter())
+        return Measurement<UnitLength>(value: heightInMeters, unit: .meters)
     }
 }

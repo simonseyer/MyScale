@@ -4,17 +4,17 @@ import AsyncBluetooth
 import Combine
 import OSLog
 
-public enum BluetoothState {
+enum BluetoothState {
     case poweredOff, poweredOn, resetting, unauthorized, unknown, unsupported
 }
 
 @MainActor
-public protocol MyBluetooth: Observable {
+protocol MyBluetooth: Observable {
     var state: BluetoothState { get }
     var isConnecting: Bool { get }
     
     func waitUntilReady() async throws
-    func connectToNearbyScale() async throws -> Scale
+    func connectToNearbyScale() async throws -> any Scale
 }
 
 enum ScaleDiscoveryError: Error {
@@ -24,20 +24,20 @@ enum ScaleDiscoveryError: Error {
 
 @Observable
 @MainActor
-public class MyBluetoothImpl: MyBluetooth {
+class MyBluetoothImpl: MyBluetooth {
     
-    public private(set) var state: BluetoothState
-    public private(set) var isConnecting = false
+    private(set) var state: BluetoothState
+    private(set) var isConnecting = false
     
     private let centralManager: CentralManager
     private var subscriptions: Set<AnyCancellable> = []
     
     private static let logger = Logger(subsystem: "ch.comeup.MyScale", category: "MyBluetooth")
-    private static var connectableScales: [BluetoothConnectable.Type] = [
+    private static var connectableScales: [any BluetoothConnectable.Type] = [
         EufyC1Scale.self
     ]
     
-    public init(centralManager: CentralManager = .init()) {
+    init(centralManager: CentralManager = .init()) {
         self.centralManager = centralManager
         self.state = .init(centralManager.bluetoothState)
 
@@ -56,11 +56,11 @@ public class MyBluetoothImpl: MyBluetooth {
             .store(in: &subscriptions)
     }
     
-    public func waitUntilReady() async throws {
+    func waitUntilReady() async throws {
         try await centralManager.waitUntilReady()
     }
     
-    public func connectToNearbyScale() async throws -> Scale {
+    func connectToNearbyScale() async throws -> any Scale {
         guard !isConnecting else {
             throw ScaleDiscoveryError.scanAlreadyInProgress
         }
@@ -84,7 +84,7 @@ public class MyBluetoothImpl: MyBluetooth {
         throw ScaleDiscoveryError.noScaleFound
     }
     
-    private func connectScale(with scanData: ScanData) async -> Scale? {
+    private func connectScale(with scanData: ScanData) async -> (any Scale)? {
         let scannables = Self.connectableScales.filter { connectable in
             !scanData.serviceUUIDs.isDisjoint(with: connectable.scannableServices)
         }

@@ -1,14 +1,14 @@
 import Foundation
 import HealthKit
 
-public struct HealthKitSample {
-    public let date: Date = .now
-    public let bodyMass: Measurement<UnitMass>?
-    public let leanBodyMass: Measurement<UnitMass>?
-    public let bodyMassIndex: Double?
-    public let bodyFatPercentage: Double?
+struct HealthKitSample {
+    let date: Date = .now
+    let bodyMass: Measurement<UnitMass>?
+    let leanBodyMass: Measurement<UnitMass>?
+    let bodyMassIndex: Double?
+    let bodyFatPercentage: Double?
     
-    public init(bodyMass: Measurement<UnitMass>?, leanBodyMass: Measurement<UnitMass>?, bodyMassIndex: Double?, bodyFatPercentage: Double?) {
+    init(bodyMass: Measurement<UnitMass>?, leanBodyMass: Measurement<UnitMass>?, bodyMassIndex: Double?, bodyFatPercentage: Double?) {
         self.bodyMass = bodyMass
         self.leanBodyMass = leanBodyMass
         self.bodyMassIndex = bodyMassIndex

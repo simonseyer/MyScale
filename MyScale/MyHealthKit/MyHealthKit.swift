@@ -1,7 +1,7 @@
 import Foundation
 import HealthKit
 
-public protocol MyHealthKit: Sendable {
+protocol MyHealthKit {
     var isAvailable: Bool { get }
     var authorizationStatus: HealthKitAuthorization { get }
  
@@ -11,36 +11,36 @@ public protocol MyHealthKit: Sendable {
     func share(sample: HealthKitSample) async throws
 }
 
-public struct MyHealthKitImpl: MyHealthKit {
+struct MyHealthKitImpl: MyHealthKit {
 
     private let healthStore = HKHealthStore()
     private let bodyCharacteristicsFactory: BodyCharacteristicsFactory
     
-    public var isAvailable: Bool {
+    var isAvailable: Bool {
         HKHealthStore.isHealthDataAvailable()
     }
     
-    public var authorizationStatus: HealthKitAuthorization {
+    var authorizationStatus: HealthKitAuthorization {
         HealthKitAuthorization.determine(for: healthStore)
     }
     
-    public init() {
+    init() {
         self.bodyCharacteristicsFactory = BodyCharacteristicsFactory(healthStore: healthStore)
     }
     
-    public func requestAuthorization() async throws {
+    func requestAuthorization() async throws {
         try await HealthKitAuthorization.request(for: healthStore)
     }
     
-    public func readBodyCharacteristics() async -> BodyCharacteristics {
+    func readBodyCharacteristics() async -> BodyCharacteristics {
         await bodyCharacteristicsFactory.readBodyCharacteristics()
     }
     
-    public func readPreferredUnits() async throws -> HealthKitUnits {
+    func readPreferredUnits() async throws -> HealthKitUnits {
         try await HealthKitUnits.preferredUnits(for: healthStore)
     }
     
-    public func share(sample: HealthKitSample) async throws {
+    func share(sample: HealthKitSample) async throws {
         try await sample.save(to: healthStore)
     }
 }

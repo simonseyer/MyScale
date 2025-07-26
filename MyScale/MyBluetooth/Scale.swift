@@ -1,7 +1,6 @@
 import Foundation
 
-@MainActor
-public protocol Scale: Observable {
+protocol Scale: Observable {
     var isConnected: Bool { get }
     var batteryLevel: Int? { get }
     var measurement: ScaleMeasurement? { get }
@@ -9,23 +8,23 @@ public protocol Scale: Observable {
     func disconnect() async throws
 }
 
-public struct ScaleMeasurement: Hashable, Identifiable, Sendable {
-    public var id: Int {
+struct ScaleMeasurement: Hashable, Identifiable {
+    var id: Int {
         hashValue
     }
     
-    public let weight: Measurement<UnitMass>
-    public let impedance: Double
-    public let status: Status
+    let weight: Measurement<UnitMass>
+    let impedance: Double
+    let status: Status
     
-    public enum Status: Sendable {
+    enum Status {
         case final
         case measuring
         case overWeight
         case unknown
     }
     
-    public init(weight: Measurement<UnitMass>, impedance: Double, status: Status) {
+    init(weight: Measurement<UnitMass>, impedance: Double, status: Status) {
         self.weight = weight
         self.impedance = impedance
         self.status = status

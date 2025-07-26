@@ -48,7 +48,7 @@ class EufyC1Scale: Scale, BluetoothConnectable {
         }
     }
     
-    static func connect(scanData: ScanData, centralManager: CentralManager) async throws -> Scale {
+    static func connect(scanData: ScanData, centralManager: CentralManager) async throws -> any Scale {
         logger.debug("Manufacturer data: \(scanData.advertisementData)")
         // TODO: Validate Manufacturer data
         // TODO: parse initial state from Manufacturer data for more immediate values

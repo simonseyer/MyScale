@@ -3,10 +3,10 @@ import SwiftUI
 @MainActor
 struct MainView: View {
     
-    let bluetooth: MyBluetooth
+    let bluetooth: any MyBluetooth
     private let healthKit = MyHealthKitImpl()
     
-    @State private var scale: Scale?
+    @State private var scale: (any Scale)?
 //    @State private var measurement: ScaleMeasurement?
     @State private var path = NavigationPath()
     

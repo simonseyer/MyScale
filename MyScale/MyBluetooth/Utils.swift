@@ -3,7 +3,7 @@ import CoreBluetooth
 import AsyncBluetooth
 
 extension Data {
-    struct HexEncodingOptions: OptionSet {
+    struct HexEncodingOptions: @MainActor OptionSet {
         let rawValue: Int
         static let upperCase = HexEncodingOptions(rawValue: 1 << 0)
     }
